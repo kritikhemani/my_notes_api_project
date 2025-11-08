@@ -10,3 +10,9 @@ class NoteUpdate(BaseModel):
     title: Optional[str] = Field(None, min_length=1)
     content: Optional[str] = Field(None, min_length=1)
     
+class NoteResponse(BaseModel):
+    id: int
+    title: str
+    content: str
+
+    
