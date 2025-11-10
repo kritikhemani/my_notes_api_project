@@ -24,4 +24,9 @@ def update(note_id, update_data):
         note.update(update_data)
     return note
 
+def delete(note_id):
+    note = get_one(note_id)
+    if note:
+        notes.remove(note)
+    return note
 
