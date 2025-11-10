@@ -18,3 +18,10 @@ def create(note_data):
     note_id_counter += 1
     return note
 
+def update(note_id, update_data):
+    note = get_one(note_id)
+    if note:
+        note.update(update_data)
+    return note
+
+
