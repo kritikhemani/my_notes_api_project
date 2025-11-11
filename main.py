@@ -23,3 +23,8 @@ def read_notes(note_id: int, db=Depends(get_db)):
     if note is None:
         raise HTTPException(status_code=404, detail="Note not found")
     return note
+
+@app.put("/notes/{note_id}", response_model=NoteResponse)
+def update_note():
+    pass
+
