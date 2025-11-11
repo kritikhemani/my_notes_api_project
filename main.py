@@ -25,8 +25,11 @@ def read_notes(note_id: int, db=Depends(get_db)):
     return note
 
 @app.put("/notes/{note_id}", response_model=NoteResponse)
-def update_note():
-    pass
+def update_note(note_id: int, note: NoteUpdate, db=Depends(get_db)):
+    updated = db.update(note_id, note.model_dump(exclude_unset=True))
+    if not updated:
+        raise HTTPException(status_code=404, detail="Note not found")
+    return updated
 
 @app.delete("/notes/{note_id}", response_model=NoteResponse)
 def delete_note():
