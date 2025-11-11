@@ -28,3 +28,7 @@ def read_notes(note_id: int, db=Depends(get_db)):
 def update_note():
     pass
 
+@app.delete("/notes/{note_id}", response_model=NoteResponse)
+def delete_note():
+    pass
+
